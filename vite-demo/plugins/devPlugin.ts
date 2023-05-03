@@ -51,7 +51,7 @@ export let getReplacer = () => {
     "better-sqlite3",
     "knex",
   ];
-  let result = {};
+  let result = {} as any;
   for (let item of externalModels) {
     result[item] = () => ({
       find: new RegExp(`^${item}$`),
