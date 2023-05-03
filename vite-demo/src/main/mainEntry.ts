@@ -1,6 +1,17 @@
 import { app, BrowserWindow } from "electron";
 import { CustomScheme } from "./CustomScheme";
 process.env.ELECTRON_DISABLE_SECURITY_WARNINGS = "true";
+
+// sqlite3 demo
+const Database = require("better-sqlite3");
+const db = new Database("db.db", {
+  verbose: console.log,
+  nativeBinding:
+    "./node_modules/better-sqlite3/build/Release/better_sqlite3.node",
+});
+
+console.log("db", db);
+
 let mainWindow: BrowserWindow;
 
 app.whenReady().then(() => {
